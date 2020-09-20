@@ -87,6 +87,8 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 
+
+
 		//only control the player if grounded or airControl is turned on
 		if (m_Grounded || m_AirControl)
 		{

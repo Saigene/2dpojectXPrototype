@@ -29,25 +29,26 @@ public class Playermovement : MonoBehaviour
 
         
           
-        if (Input.GetButtonDown("Jump"))
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
             jump = true;
             animator.SetBool("Isjumping", true);
         }
 
 
-        if (Input.GetButtonDown("Crouch"))
+        if (CrossPlatformInputManager.GetButtonDown("Guard"))
         {
+            animator.SetBool("Isguard", true);
+            animator.SetBool("Isjumping", false);
             crouch = true;
-            
         }
-        else if (Input.GetButtonUp("Crouch"))
+        else if (CrossPlatformInputManager.GetButtonUp("Guard"))
         {
-            crouch = false;
-           
+            animator.SetBool("Isguard", false);
+            crouch = false;          
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
         {
             Debug.Log("attacking");
             combat3.Attack();
@@ -55,7 +56,7 @@ public class Playermovement : MonoBehaviour
         }
 
 
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        horizontalMove = CrossPlatformInputManager.GetAxisRaw("Horizontal") * runSpeed;
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
     }

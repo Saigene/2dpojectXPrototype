@@ -7,7 +7,7 @@ public class Playermovement : MonoBehaviour
 {
 
     public CharacterController2D controller;
-    public PlayerCombat playercombat;
+    public PlayerCombat3 combat3;
     public Animator animator;
     public float runSpeed = 40f;
 
@@ -38,7 +38,10 @@ public class Playermovement : MonoBehaviour
         }
 
 
-
+        if (Input.GetButtonDown("Fire1"))
+        {
+            combat3.Attack();
+        }
 
         if (Input.GetButtonDown("Crouch"))
         {

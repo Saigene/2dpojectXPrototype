@@ -14,6 +14,7 @@ public class Playermovement : MonoBehaviour
     float horizontalMove = 0f;
     bool jump = false;
     bool crouch = false;
+    bool attacking = false;
 
     
     
@@ -25,23 +26,15 @@ public class Playermovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+
         
           
         if (Input.GetButtonDown("Jump"))
         {
-
-            Debug.Log("Jumping");
             jump = true;
             animator.SetBool("Isjumping", true);
         }
 
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-            combat3.Attack();
-        }
 
         if (Input.GetButtonDown("Crouch"))
         {
@@ -53,6 +46,18 @@ public class Playermovement : MonoBehaviour
             crouch = false;
            
         }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Debug.Log("attacking");
+            combat3.Attack();
+            animator.SetBool("Isjumping", false); 
+        }
+
+
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+
     }
 
     private void FixedUpdate()

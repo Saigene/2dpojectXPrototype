@@ -22,20 +22,20 @@ public class PlayerCombat3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Attack();
+  //      Attack();
     }
 
     public void Attack()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
+   //     if (Input.GetButtonDown("Fire1"))
+   //     {
             inputReceived = true;
             canReceiveInput = false;
-        }
-        else
-        {
-            return;
-        }
+   //     }
+  //      else
+   //     {
+  //          return;
+   //     }
     }
 
     public void InputManager()
